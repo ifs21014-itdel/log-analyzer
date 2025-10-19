@@ -1,14 +1,14 @@
 ```markdown
 # Log Analyzer
 
-A robust backend service built with **Golang** using **Clean Architecture** principles. This project provides secure authentication with **JWT** and **Google Authenticator (TOTP)**, along with powerful APIs for uploading and analyzing log files concurrently.
+A robust backend service built with Golang using Clean Architecture principles. This project provides secure authentication with JWT and Google Authenticator (TOTP), along with powerful APIs for uploading and analyzing log files concurrently.
 
 ---
 
 ## Features
 
 - User registration and login with secure password handling
-- Optional Two-Factor Authentication (2FA) using **Google Authenticator (TOTP)**
+- Optional Two-Factor Authentication (2FA) using Google Authenticator (TOTP)
 - JWT authentication for protected endpoints
 - Concurrent log file parsing using goroutines
 - Complete CRUD operations for log analysis
@@ -19,16 +19,16 @@ A robust backend service built with **Golang** using **Clean Architecture** prin
 
 ## Authentication Flow
 
-The authentication system uses **JWT tokens** and optional **Google Authenticator (TOTP)** for enhanced security.
+The authentication system uses JWT tokens and optional Google Authenticator (TOTP) for enhanced security.
 
 ### 1. Register User
 
-**Endpoint:**
+Endpoint:
 ```http
 POST /api/register
 ```
 
-**Request Body:**
+Request Body:
 ```json
 {
   "email": "user@example.com",
@@ -37,7 +37,7 @@ POST /api/register
 }
 ```
 
-**Response:**
+Response:
 ```json
 {
   "user": {
@@ -51,12 +51,12 @@ POST /api/register
 
 ### 2. Setup TOTP (Google Authenticator)
 
-**Endpoint:**
+Endpoint:
 ```http
 POST /api/totp/setup/:id
 ```
 
-**Response:**
+Response:
 ```json
 {
   "secret": "JBSWY3DPEHPK3PXP",
@@ -64,25 +64,25 @@ POST /api/totp/setup/:id
 }
 ```
 
-**Note:** Scan the `otpauth_uri` QR code using the Google Authenticator app to generate your 6-digit verification codes.
+Note: Scan the `otpauth_uri` QR code using the Google Authenticator app to generate your 6-digit verification codes.
 
 ---
 
 ### 3. Verify TOTP
 
-**Endpoint:**
+Endpoint:
 ```http
 POST /api/totp/verify/:id
 ```
 
-**Request Body:**
+Request Body:
 ```json
 {
   "code": "123456"
 }
 ```
 
-**Response:**
+Response:
 ```json
 {
   "enabled": true
@@ -93,12 +93,12 @@ POST /api/totp/verify/:id
 
 ### 4. Login
 
-**Endpoint:**
+Endpoint:
 ```http
 POST /api/login
 ```
 
-**Request Body (with TOTP):**
+Request Body (with TOTP):
 ```json
 {
   "email": "user@example.com",
@@ -107,7 +107,7 @@ POST /api/login
 }
 ```
 
-**Response:**
+Response:
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIs...",
@@ -119,7 +119,7 @@ POST /api/login
 }
 ```
 
-**Important:** Use this token in the Authorization header for all protected endpoints.
+Important: Use this token in the Authorization header for all protected endpoints.
 
 ---
 
@@ -129,22 +129,22 @@ Once logged in, you can upload and analyze log files through the API.
 
 ### Upload Log File
 
-**Endpoint:**
+Endpoint:
 ```http
 POST /api/upload/
 ```
 
-**Header:**
+Header:
 ```http
 Authorization: Bearer <JWT_TOKEN>
 ```
 
-**Body (form-data):**
+Body (form-data):
 ```
 file: <your-log-file.log>
 ```
 
-**Response:**
+Response:
 ```json
 {
   "message": "file uploaded and analyzed"
@@ -163,7 +163,7 @@ Each line in the log file should follow this format:
 192.168.1.12 500 0.320
 ```
 
-**The system analyzes:**
+The system analyzes:
 - Total requests
 - Number of errors (non-200 responses)
 - Unique IP addresses
@@ -173,13 +173,13 @@ Each line in the log file should follow this format:
 
 ## Technologies Used
 
-- **Go (Golang)** - Programming language
-- **Gin** - Web framework
-- **GORM** - ORM for database operations
-- **PostgreSQL** - Database
-- **JWT** - Authentication tokens
-- **Google Authenticator (TOTP)** - Two-factor authentication
-- **Clean Architecture** - Design pattern
+- Go (Golang) - Programming language
+- Gin - Web framework
+- GORM - ORM for database operations
+- PostgreSQL - Database
+- JWT - Authentication tokens
+- Google Authenticator (TOTP) - Two-factor authentication
+- Clean Architecture - Design pattern
 
 ---
 
@@ -254,7 +254,7 @@ MIT License © 2025 Dedi Panggabean
 
 ## Author
 
-**Dedi Panggabean**
+Dedi Panggabean
 
 GitHub: [@ifs21014-itdel](https://github.com/ifs21014-itdel)
 
