@@ -16,29 +16,7 @@ It provides secure authentication with **JWT** and **Google Authenticator (TOTP)
 
 ---
 
-## Project Structure
 
-log-analyzer/
-│── cmd/
-│ └── main.go
-│
-│── internal/
-│ ├── domain/ # Entity definitions
-│ ├── repository/ # Database access (using GORM)
-│ ├── usecase/ # Business logic, authentication, and concurrency
-│ └── delivery/
-│ └── http/ # Gin HTTP handlers (AuthHandler, UploadHandler, etc.)
-│
-│── pkg/
-│ └── jwt/ # JWT helper & middleware
-│
-│── go.mod
-│── go.sum
-│── README.md
-
-
-
----
 
 ## Authentication Flow
 
@@ -49,7 +27,7 @@ The authentication uses **JWT** and optional **Google Authenticator (TOTP)** for
 POST /api/register
 
 **Body:**
-```json
+json
 {
   "email": "user@example.com",
   "password": "mypassword",
