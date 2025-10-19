@@ -27,7 +27,7 @@ func ValidateCode(code, secret string) (bool, error) {
 	})
 }
 
-// Optional helper to get otpauth URI manually:
+// Optional helper to get otpauth URI manually:d
 // otpauth://totp/{issuer}:{account}?secret={secret}&issuer={issuer}
 func KeyUri(issuer, account, secret string) string {
 	return fmt.Sprintf("otpauth://totp/%s:%s?secret=%s&issuer=%s", issuer, account, secret)
